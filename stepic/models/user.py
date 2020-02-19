@@ -1,8 +1,8 @@
-from stepic.extensions import db
+from stepic import db
+from stepic.models.mixin import BaseMixin
 
 
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class User(db.Model, BaseMixin):
     email = db.Column(db.String(255), unique=True)
     password = db.Column(db.String(255))
     active = db.Column(db.Boolean())
